@@ -12,6 +12,6 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Test integration by saying hello
-      run: echo Hello, world!
+    - name: Build a container image for ${GITHUB_REPOSITORY}
+      run: docker build . -t rust-web-helloworld:${GITHUB_SHA}
       
