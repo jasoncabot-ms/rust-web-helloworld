@@ -14,4 +14,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build a container image for ${GITHUB_REPOSITORY}
       run: docker build . -t rust-web-helloworld:${GITHUB_SHA}
+      run: echo ${ACR_PASSWORD} | docker login ${ACR_URI} -u ${ACR_USERNAME} --password-stdin
+      env:
+        ACR_URI: ${{ secrets.ACR_URI }}
+        ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
+        ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
       
