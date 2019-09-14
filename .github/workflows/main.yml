@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build a container image for ${GITHUB_REPOSITORY}
-      run: -
+      run: |
         docker build . -t rust-web-helloworld:${GITHUB_SHA}
         echo ${ACR_PASSWORD} | docker login ${ACR_URI} -u ${ACR_USERNAME} --password-stdin
       env:
