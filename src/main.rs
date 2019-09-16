@@ -11,7 +11,7 @@ fn main() {
     let env_value;
     match env::var(key) {
         Ok(val) => env_value = val,
-        Err(e) => env_value = "8080".to_string(),
+        Err(_) => env_value = "8080".to_string(),
     }
 
     HttpServer::new(|| {
