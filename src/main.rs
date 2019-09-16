@@ -3,7 +3,7 @@ use std::env;
 
 fn greet(req: HttpRequest) -> impl Responder {
     let name = req.match_info().get("name").unwrap_or("World");
-    format!("Hello {}!", &name)
+    format!("Hello {} - having fun yet?", &name)
 }
 
 fn main() {
